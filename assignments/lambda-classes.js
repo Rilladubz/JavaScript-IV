@@ -8,49 +8,48 @@ class Person {
         this.gender = props.gender;
     }
     speak() {
-        // return (`Hello my name is ${this.name}, I am from ${this.location}.`);
+        return (`Hello my name is ${this.name}, I am from ${this.location}.`);
     }
 }
 
-let Samuel = new Person({ name: 'Samuel', age: 27, location: 'CT', gender: 'M' });
-console.log(Samuel);
 
-// class Instructors extends Person {
-//     constructor(props) {
-//         super(props);
-//         this.specialty = props.specialty;
-//         this.favLanguage = props.favLanguage;
-//         this.catchPhrase - props.catchPhrase;
-//     }
 
-//     demo(subject) {
-//         console.log(`Today we are learning about ${subject}.`);
-//     }
-//     grade(student, subject) {
-//         console.log(`${student.name} receives a perfect score on {subject}.`)
-//     }
-// }
+class Instructors extends Person {
+    constructor(props) {
+        super(props);
+        this.specialty = props.specialty;
+        this.favLanguage = props.favLanguage;
+        this.catchPhrase - props.catchPhrase;
+    }
 
-// class Students extends Person {
-//     constructor(props) {
-//         super(props);
-//         this.previousBackground = props.previousBackground;
-//         this.className = props.className;
-//         this.favSubjects = props.favLanguage;
-//     }
+    demo(subject) {
+        console.log(`Today we are learning about ${subject}.`);
+    }
+    grade(student, subject) {
+        console.log(`${student.name} receives a perfect score on ${subject}.`)
+    }
+}
 
-//     listsSubjects(favSubjects) {
-//         console.log(favSubjects);
-//     }
+class Students extends Person {
+    constructor(props) {
+        super(props);
+        this.previousBackground = props.previousBackground;
+        this.className = props.className;
+        this.favSubjects = props.favSubjects;
+    }
 
-//     PRAssignment(subject) {
-//         console.log(`${student.name} has submitted a PR for ${subject}.`)
-//     }
+    listsSubjects(favSubjects) {
+        console.log(favSubjects)
+    }
 
-//     sprintChallenge(subject) {
-//         console.log(`${student.name} has begun sprint challenge on ${subject}.`)
-//     }
-// }
+    PRAssignment(subject) {
+        console.log(`${student.name} has submitted a PR for ${subject}.`)
+    }
+
+    sprintChallenge(subject) {
+        console.log(`${Students.name} has begun sprint challenge on ${subject}.`)
+    }
+}
 
 // class PM extends Instructors {
 //     constructor(props) {
@@ -69,13 +68,24 @@ console.log(Samuel);
 // }
 
 
+let Samuel = new Person({ name: 'Samuel', age: 27, location: 'CT', gender: 'M' });
+let Sam = new Instructors({ name: 'Samuel', age: 27, location: 'CT', gender: 'M', specialty: 'coughing', favLanguage: 'English', catchPhrase: 'oh yeah', });
+let Sammy = new Students({
+    name: 'Samuel', age: 27, location: 'CT', gender: 'M',
+    specialty: 'smiling', favLanguage: 'Spanish', catchPhrase: 'oh no',
+    previousBackground: 'thug', className: 'web 2.9', favSubjects: 'math',
+});
 
+console.log(Samuel);
+console.log(Sam);
+console.log(Sammy);
 
-
-
-
-
-
+console.log(Sam.demo('Math'));
+//followed by undefined
+console.log(Sam.grade(Sammy, 'Math'));
+//followed by undefined
+// console.log(Sammy.listsSubjects());
+console.log(Sammy.sprintChallenge('javascript'));
 
 
 
