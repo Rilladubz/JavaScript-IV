@@ -99,7 +99,7 @@ class CharacterStats extends GameObject {
 //     this.language = humanoidOptions.language;
 // }
 
-class Humanoid extends GameObject {
+class Humanoid extends CharacterStats {
     constructor(props) {
         super(props);
         this.team = props.team;
