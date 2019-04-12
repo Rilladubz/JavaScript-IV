@@ -43,7 +43,7 @@ class Students extends Person {
     }
 
     PRAssignment(subject) {
-        console.log(`${student.name} has submitted a PR for ${subject}.`)
+        console.log(`${Students.name} has submitted a PR for ${subject}.`)
     }
 
     sprintChallenge(subject) {
@@ -51,41 +51,67 @@ class Students extends Person {
     }
 }
 
-// class PM extends Instructors {
-//     constructor(props) {
-//         super(props);
-//         this.gradClassName = props.gradClassName;
-//         this.favInstructor = props.favInstructor;
-//     }
+class PM extends Instructors {
+    constructor(props) {
+        super(props);
+        this.gradClassName = props.gradClassName;
+        this.favInstructor = props.favInstructor;
+    }
 
-//     standUp(channel) {
-//         console.log(`${PM.name} announces to ${channel}, @channel standy times!​​​​​`);
-//     }
+    standUp(channel) {
+        console.log(`${PM.name} announces to ${channel}, @channel standy times!​​​​​`);
+    }
 
-//     debugsCode(student, subject) {
-//         console.log(`${PM.name} debugs ${student.name}'s code on ${subject}.`)
-//     }
-// }
+    debugsCode(student, subject) {
+        console.log(`${PM.name} debugs ${student.name}'s code on ${subject}.`)
+    }
+}
 
 
 let Samuel = new Person({ name: 'Samuel', age: 27, location: 'CT', gender: 'M' });
-let Sam = new Instructors({ name: 'Samuel', age: 27, location: 'CT', gender: 'M', specialty: 'coughing', favLanguage: 'English', catchPhrase: 'oh yeah', });
+
+let Sam = new Instructors({
+    name: 'Samuel', age: 27, location: 'CT', gender: 'M',
+    specialty: 'coughing', favLanguage: 'English', catchPhrase: 'oh yeah',
+});
+
 let Sammy = new Students({
     name: 'Samuel', age: 27, location: 'CT', gender: 'M',
     specialty: 'smiling', favLanguage: 'Spanish', catchPhrase: 'oh no',
     previousBackground: 'thug', className: 'web 2.9', favSubjects: 'math',
 });
 
+let Sami = new PM({
+    name: 'Samuel', age: 27, location: 'CT', gender: 'M',
+    specialty: 'coughing', favLanguage: 'English', catchPhrase:
+        'oh yeah', gradClassName: 'beast19', favInstructor: 'josh'
+});
+
+
 console.log(Samuel);
 console.log(Sam);
 console.log(Sammy);
+console.log(Sami);
 
+console.log(Samuel.speak());
 console.log(Sam.demo('Math'));
 //followed by undefined
 console.log(Sam.grade(Sammy, 'Math'));
 //followed by undefined
 // console.log(Sammy.listsSubjects());
+//broken
 console.log(Sammy.sprintChallenge('javascript'));
+//followed by undefined
+console.log(Sammy.PRAssignment('Geometry'));
+//followed by undefined
+console.log(Sammy.sprintChallenge('html'));
+//followed by undefined
+console.log(Sami.standUp('channelex'));
+//followed by undefined
+console.log(Sami.debugsCode(Sammy, 'react'));
+//followed by undefined
+
+
 
 
 
